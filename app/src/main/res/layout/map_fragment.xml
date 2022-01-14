@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.accountability.AccountabilityFragment">
+    tools:context=".screens.map.MapFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/bmenu_accountability" />
+        android:text="@string/bmenu_map" />
 
 </FrameLayout>

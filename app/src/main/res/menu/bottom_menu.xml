@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_1"
+        android:icon="@drawable/ic_bmenu_statistics"
+        android:title="@string/bmenu_statistics" />
+
+    <item
+        android:id="@+id/item_2"
+        android:icon="@drawable/ic_bmenu_visits"
+        android:title="@string/bmenu_visits" />
+
+    <item
+        android:id="@+id/item_3"
+        android:icon="@drawable/ic_bmenu_map"
+        android:title="@string/bmenu_map" />
+
+    <item
+        android:id="@+id/item_4"
+        android:icon="@drawable/ic_bmenu_accountability"
+        android:title="@string/bmenu_accountability" />
+
+    <item
+        android:id="@+id/item_5"
+        android:icon="@drawable/ic_bmenu_exchange"
+        android:title="@string/bmenu_exchange" />
+
+</menu>

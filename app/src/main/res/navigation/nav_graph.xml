@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/item_1">
+
+    <fragment
+        android:id="@+id/item_1"
+        android:name="com.example.mybusinesstrip.screens.statistiks.StatisticsFragment"
+        android:label="statistics_fragment"
+        tools:layout="@layout/statistics_fragment" />
+    <fragment
+        android:id="@+id/item_2"
+        android:name="com.example.mybusinesstrip.screens.visits.VisitsFragment"
+        android:label="visits_fragment"
+        tools:layout="@layout/visits_fragment" />
+    <fragment
+        android:id="@+id/item_3"
+        android:name="com.example.mybusinesstrip.screens.map.MapFragment"
+        android:label="map_fragment"
+        tools:layout="@layout/map_fragment" />
+    <fragment
+        android:id="@+id/item_4"
+        android:name="com.example.mybusinesstrip.screens.accountability.AccountabilityFragment"
+        android:label="accountability_fragment"
+        tools:layout="@layout/accountability_fragment" />
+    <fragment
+        android:id="@+id/item_5"
+        android:name="com.example.mybusinesstrip.screens.exchange.DataExchangeFragment"
+        android:label="data_exchange_fragment"
+        tools:layout="@layout/data_exchange_fragment" />
+</navigation>

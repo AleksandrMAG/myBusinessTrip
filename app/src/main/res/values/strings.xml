@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">My Business Trip</string>
+
+    //menu
+    <string name="bmenu_visits">визиты</string>
+    <string name="bmenu_statistics">резузьтаты</string>
+    <string name="bmenu_accountability">подотчет</string>
+    <string name="bmenu_exchange">обмен</string>
+    <string name="bmenu_map">карта</string>
+
+
 </resources>
