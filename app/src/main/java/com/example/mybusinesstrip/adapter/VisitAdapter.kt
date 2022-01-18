@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybusinesstrip.R
-import com.example.mybusinesstrip.model.VisitsData
+import com.example.mybusinesstrip.model.VisitsModel
 import kotlinx.android.synthetic.main.constraint_inner_card.view.*
 
 class VisitAdapter : RecyclerView.Adapter<VisitAdapter.VisitViewHolder>() {
 
-    private var listVisits = emptyList<VisitsData>()
+    private var listVisits = emptyList<VisitsModel>()
 
     class VisitViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -34,7 +34,7 @@ class VisitAdapter : RecyclerView.Adapter<VisitAdapter.VisitViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<VisitsData>) {
+    fun setList(list: List<VisitsModel>) {
         listVisits = list
         notifyDataSetChanged()
     }

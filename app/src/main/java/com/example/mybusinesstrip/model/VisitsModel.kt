@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "visits_data")
-class VisitsData {
+@Entity(tableName = VisitsModel.TABLENAME)
+class VisitsModel {
 
     @PrimaryKey(autoGenerate = true)
     var id : Int = 0
@@ -37,4 +37,7 @@ class VisitsData {
 
     var photos : String = ""
 
+    companion object {
+        const val TABLENAME = "visits_data"
+    }
 }

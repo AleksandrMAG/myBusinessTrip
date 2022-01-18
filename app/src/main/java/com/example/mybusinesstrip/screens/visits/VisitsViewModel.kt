@@ -1,7 +1,12 @@
 package com.example.mybusinesstrip.screens.visits
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class VisitsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class VisitsViewModel(application: Application) : AndroidViewModel(application) {
+
+    val context = application
+
+
+
 }
