@@ -1,6 +1,6 @@
 package com.example.mybusinesstrip
 
-import com.example.mybusinesstrip.db.repository.RepositoryRealization
+import com.example.mybusinesstrip.db.repository.VisitRepository
 
 lateinit var APP: MainActivity
-lateinit var REPOSITORY: RepositoryRealization
+lateinit var REPOSITORY: VisitRepository

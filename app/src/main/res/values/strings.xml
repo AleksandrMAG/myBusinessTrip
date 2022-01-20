@@ -8,5 +8,7 @@
     <string name="bmenu_exchange">обмен</string>
     <string name="bmenu_map">карта</string>
 
+    <string name="fab_description">Кнопка добавить новый визит</string>
+
     <string name="hello_blank_fragment">ТЕСТ - Добавить ВИЗИТ</string>
 </resources>

@@ -14,7 +14,11 @@
         android:id="@+id/item_1"
         android:name="com.example.mybusinesstrip.screens.visits.VisitsFragment"
         android:label="visits_fragment"
-        tools:layout="@layout/visits_fragment" />
+        tools:layout="@layout/visits_fragment" >
+        <action
+            android:id="@+id/action_item_1_to_addVisitFragment"
+            app:destination="@id/addVisitFragment" />
+    </fragment>
     <fragment
         android:id="@+id/item_2"
         android:name="com.example.mybusinesstrip.screens.map.MapFragment"
@@ -30,4 +34,13 @@
         android:name="com.example.mybusinesstrip.screens.exchange.DataExchangeFragment"
         android:label="data_exchange_fragment"
         tools:layout="@layout/data_exchange_fragment" />
+    <fragment
+        android:id="@+id/addVisitFragment"
+        android:name="com.example.mybusinesstrip.AddVisitFragment"
+        android:label="fragment_add_visit"
+        tools:layout="@layout/fragment_add_visit" >
+        <action
+            android:id="@+id/action_addVisitFragment_to_item_1"
+            app:destination="@id/item_1" />
+    </fragment>
 </navigation>
