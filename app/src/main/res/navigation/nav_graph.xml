@@ -36,7 +36,7 @@
         tools:layout="@layout/data_exchange_fragment" />
     <fragment
         android:id="@+id/addVisitFragment"
-        android:name="com.example.mybusinesstrip.AddVisitFragment"
+        android:name="com.example.mybusinesstrip.screens.addvisit.AddVisitFragment"
         android:label="fragment_add_visit"
         tools:layout="@layout/fragment_add_visit" >
         <action

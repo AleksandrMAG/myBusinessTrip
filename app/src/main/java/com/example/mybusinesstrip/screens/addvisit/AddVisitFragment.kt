@@ -1,59 +1,55 @@
-package com.example.mybusinesstrip
+package com.example.mybusinesstrip.screens.addvisit
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.ViewModelProvider
+import com.example.mybusinesstrip.APP
+import com.example.mybusinesstrip.R
+import com.example.mybusinesstrip.databinding.FragmentAddVisitBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AddVisitFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddVisitFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding: FragmentAddVisitBinding
+    lateinit var viewModel: AddVisitViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_visit, container, false)
+        binding = FragmentAddVisitBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddVisitFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AddVisitFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        init()
     }
+
+    private fun init() {
+        viewModel = ViewModelProvider(this).get(AddVisitViewModel::class.java)
+        binding.etLegal.doAfterTextChanged { viewModel.newVisit.person = it.toString() }
+        binding.etLabel.doAfterTextChanged { viewModel.newVisit.signName = it.toString() }
+        binding.etAddress.doAfterTextChanged { viewModel.newVisit.address = it.toString() }
+        binding.etLocality.doAfterTextChanged { viewModel.newVisit.locality = it.toString() }
+        binding.etRegion.doAfterTextChanged { viewModel.newVisit.region = it.toString() }
+        binding.etPhone1.doAfterTextChanged { viewModel.newVisit.contactPhone = it.toString() }
+        binding.etPhone2.doAfterTextChanged { viewModel.newVisit.contactPhoneSecond = it.toString() }
+        binding.etEmail.doAfterTextChanged { viewModel.newVisit.contactEmail = it.toString() }
+        binding.etSite.doAfterTextChanged { viewModel.newVisit.contactSite = it.toString() }
+        binding.etDiscription.doAfterTextChanged { viewModel.newVisit.infoAfter = it.toString() }
+        binding.etTodo.doAfterTextChanged { viewModel.newVisit.infoTodo = it.toString() }
+
+        binding.btnFinishVisit.setOnClickListener {
+            viewModel.saveVisit {  }
+            APP.navController.navigate(R.id.action_addVisitFragment_to_item_1)
+            APP.binding.bottomNavView.visibility = View.VISIBLE
+        }
+    }
+
 }

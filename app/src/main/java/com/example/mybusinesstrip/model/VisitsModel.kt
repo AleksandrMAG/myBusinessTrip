@@ -21,9 +21,9 @@ class VisitsModel {
     @ColumnInfo(name = "name")
     var contactName : String = ""
     @ColumnInfo(name = "phone")
-    var contactPhone : Long = 380000000000
+    var contactPhone : String = "380000000000"
     @ColumnInfo(name = "phone_2")
-    var contactPhoneSecond : Long = 380000000000
+    var contactPhoneSecond : String = "380000000000"
     @ColumnInfo(name = "email")
     var contactEmail : String = "@"
     @ColumnInfo(name = "site")

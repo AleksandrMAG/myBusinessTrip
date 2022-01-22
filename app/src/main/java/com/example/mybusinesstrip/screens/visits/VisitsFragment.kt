@@ -44,6 +44,7 @@ class VisitsFragment : Fragment() {
 
         binding.fabAddVisit.setOnClickListener {
             APP.navController.navigate(R.id.action_item_1_to_addVisitFragment)
+            APP.binding.bottomNavView.visibility = View.GONE
         }
     }
 
