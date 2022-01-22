@@ -1,14 +1,60 @@
 <resources>
     <string name="app_name">My Business Trip</string>
 
-    //menu
+    //-------menu--------------------------------------------------------------------------------
     <string name="bmenu_visits">визиты</string>
     <string name="bmenu_statistics">резузьтаты</string>
     <string name="bmenu_accountability">подотчет</string>
     <string name="bmenu_exchange">обмен</string>
     <string name="bmenu_map">карта</string>
 
-    <string name="fab_description">Кнопка добавить новый визит</string>
 
+    //-------Buttons----------------------------------------------------------------------------
+    <string name="fab_description">Кнопка добавить новый визит</string>
+    <string name="btn_finish_visit">Завершить визит</string>
+    <string name="btn_create_photo">Сделать ФОТО</string>
+
+    //--------Text View--------------------------------------------------------------------------
+
+    //add_fragment
+    <string name="tv_legal">Юр.название:</string>
+    <string name="tv_label">Вывеска:</string>
+    <string name="tv_address">Адресс:</string>
+    <string name="tv_address_locality">Область:</string>
+    <string name="tv_address_region">Населенный пункт:</string>
+    <string name="tv_responsible_employer">Ответственный сотрудник:</string>
+
+    <string name="tv_clients_name">Имя клиента:</string>
+    <string name="tv_phone">Телефон:</string>
+    <string name="tv_email">Email:</string>
+    <string name="tv_site">Сайт:</string>
+
+    <string name="tv_info_before">Описание:</string>
+    <string name="tv_info_after">Комментарий после визита:</string>
+    <string name="tv_todo">Необходимо сделать:</string>
+
+    <string name="tv_div_contacts">Контактная информация:</string>
+
+
+    //--------Edit Text hints--------------------------------------------------------------------
+
+    //add_fragment
+    <string name="et_hint_legal">Юридическое название</string>
+    <string name="et_hint_label">Фактическое название (вывеска)</string>
+    <string name="et_hint_address">адрес</string>
+    <string name="et_hint_locality">Населенный пункт</string>
+    <string name="et_hint_region">Область</string>
+    <string name="et_hint_employer">Ответственный за клиента сотрудник</string>
+
+    <string name="et_hint_name">Имя контакта</string>
+    <string name="et_hint_phone">Phone</string>
+    <string name="et_hint_email">Email</string>
+    <string name="et_hint_site">www</string>
+
+    <string name="et_hint_after">Описать ситуацию после визита и достигнутые договоренности</string>
+    <string name="et_hint_todo">ЗАДАЧИ: что необходимо сделать в будущем</string>
+
+
+    //-------------------------------------------------
     <string name="hello_blank_fragment">ТЕСТ - Добавить ВИЗИТ</string>
 </resources>
