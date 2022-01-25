@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybusinesstrip.R
 import com.example.mybusinesstrip.model.VisitsModel
+import com.example.mybusinesstrip.screens.visits.VisitsFragment
 import kotlinx.android.synthetic.main.constraint_inner_card.view.*
 
 class VisitAdapter : RecyclerView.Adapter<VisitAdapter.VisitViewHolder>() {
@@ -27,6 +28,7 @@ class VisitAdapter : RecyclerView.Adapter<VisitAdapter.VisitViewHolder>() {
         holder.itemView.item_tv_person.text = visit.person
         holder.itemView.item_tv_sign.text = visit.signName
         holder.itemView.item_tv_address.text = visit.address
+        holder.itemView.item_tv_name.text = visit.contactName
     }
 
     override fun getItemCount(): Int {
@@ -37,5 +39,17 @@ class VisitAdapter : RecyclerView.Adapter<VisitAdapter.VisitViewHolder>() {
     fun setList(list: List<VisitsModel>) {
         listVisits = list
         notifyDataSetChanged()
+    }
+
+    override fun onViewAttachedToWindow(holder: VisitViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        holder.itemView.setOnClickListener {
+            VisitsFragment.clickVisit(listVisits[holder.adapterPosition])
+        }
+
+    }
+
+    override fun onViewDetachedFromWindow(holder: VisitViewHolder) {
+        holder.itemView.setOnClickListener(null)
     }
 }

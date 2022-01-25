@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_item_1_to_addVisitFragment"
             app:destination="@id/addVisitFragment" />
+        <action
+            android:id="@+id/action_item_1_to_visitInProgressFragment"
+            app:destination="@id/visitInProgressFragment" />
     </fragment>
     <fragment
         android:id="@+id/item_2"
@@ -41,6 +44,15 @@
         tools:layout="@layout/fragment_add_visit" >
         <action
             android:id="@+id/action_addVisitFragment_to_item_1"
+            app:destination="@id/item_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/visitInProgressFragment"
+        android:name="com.example.mybusinesstrip.screens.visitinprogress.VisitInProgressFragment"
+        android:label="visit_in_progress_fragment"
+        tools:layout="@layout/visit_in_progress_fragment" >
+        <action
+            android:id="@+id/action_visitInProgressFragment_to_item_1"
             app:destination="@id/item_1" />
     </fragment>
 </navigation>

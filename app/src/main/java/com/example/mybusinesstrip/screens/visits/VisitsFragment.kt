@@ -11,6 +11,7 @@ import com.example.mybusinesstrip.APP
 import com.example.mybusinesstrip.R
 import com.example.mybusinesstrip.adapter.VisitAdapter
 import com.example.mybusinesstrip.databinding.VisitsFragmentBinding
+import com.example.mybusinesstrip.model.VisitsModel
 
 class VisitsFragment : Fragment() {
 
@@ -45,6 +46,15 @@ class VisitsFragment : Fragment() {
         binding.fabAddVisit.setOnClickListener {
             APP.navController.navigate(R.id.action_item_1_to_addVisitFragment)
             APP.binding.bottomNavView.visibility = View.GONE
+        }
+    }
+
+    companion object {
+        const val KEY = "visit"
+        fun clickVisit(visitsModel: VisitsModel) {
+            var bundle = Bundle()
+            bundle.putSerializable(KEY, visitsModel)
+            APP.navController.navigate(R.id.action_item_1_to_visitInProgressFragment, bundle)
         }
     }
 

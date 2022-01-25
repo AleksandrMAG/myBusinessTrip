@@ -3,9 +3,10 @@ package com.example.mybusinesstrip.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = VisitsModel.TABLENAME)
-class VisitsModel {
+class VisitsModel : Serializable {
 
     @PrimaryKey(autoGenerate = true)
     var id : Int = 0
@@ -21,13 +22,13 @@ class VisitsModel {
     @ColumnInfo(name = "name")
     var contactName : String = ""
     @ColumnInfo(name = "phone")
-    var contactPhone : String = "380000000000"
+    var contactPhone : String = ""
     @ColumnInfo(name = "phone_2")
-    var contactPhoneSecond : String = "380000000000"
+    var contactPhoneSecond : String = ""
     @ColumnInfo(name = "email")
-    var contactEmail : String = "@"
+    var contactEmail : String = ""
     @ColumnInfo(name = "site")
-    var contactSite : String = "www."
+    var contactSite : String = ""
     @ColumnInfo(name = "info_before")
     var infoBefore : String = ""
     @ColumnInfo(name = "info_after")
