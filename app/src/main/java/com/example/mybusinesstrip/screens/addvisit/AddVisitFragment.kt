@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.mybusinesstrip.APP
@@ -46,7 +47,7 @@ class AddVisitFragment : Fragment() {
         binding.etTodo.doAfterTextChanged { viewModel.newVisit.infoTodo = it.toString() }
 
         binding.btnFinishVisit.setOnClickListener {
-            viewModel.saveVisit {  }
+            viewModel.saveVisit() { }
             APP.navController.navigate(R.id.action_addVisitFragment_to_item_1)
             APP.binding.bottomNavView.visibility = View.VISIBLE
         }

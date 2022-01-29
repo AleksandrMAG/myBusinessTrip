@@ -16,7 +16,12 @@ class RepositoryRealization(private val visitsDao: VisitsDao): VisitRepository {
 
     override suspend fun deleteVisit(visit: VisitsModel, onSuccess: () -> Unit) {
         visitsDao.deleteVisit(visit)
-        onSuccess
+        onSuccess()
+    }
+
+    override suspend fun updateVisit(visit: VisitsModel, onSuccess: () -> Unit) {
+        visitsDao.updateVisit(visit)
+        onSuccess()
     }
 
 

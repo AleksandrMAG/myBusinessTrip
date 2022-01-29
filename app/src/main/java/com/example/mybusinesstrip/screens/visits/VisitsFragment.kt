@@ -2,10 +2,8 @@ package com.example.mybusinesstrip.screens.visits
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybusinesstrip.APP
 import com.example.mybusinesstrip.R
@@ -23,7 +21,7 @@ class VisitsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = VisitsFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -34,14 +32,14 @@ class VisitsFragment : Fragment() {
     }
 
     private fun init() {
-        viewModel = ViewModelProvider(this).get(VisitsViewModel::class.java)
+        viewModel = ViewModelProvider(this)[VisitsViewModel::class.java]
         viewModel.initDatabase()
         recyclerView = binding.rvVisits
         adapter = VisitAdapter()
         recyclerView.adapter = adapter
-        viewModel.getAllVisits().observe(viewLifecycleOwner, {
+        viewModel.getAllVisits().observe(viewLifecycleOwner) {
             adapter.setList(it)
-        })
+        }
 
         binding.fabAddVisit.setOnClickListener {
             APP.navController.navigate(R.id.action_item_1_to_addVisitFragment)
@@ -52,9 +50,10 @@ class VisitsFragment : Fragment() {
     companion object {
         const val KEY = "visit"
         fun clickVisit(visitsModel: VisitsModel) {
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putSerializable(KEY, visitsModel)
             APP.navController.navigate(R.id.action_item_1_to_visitInProgressFragment, bundle)
+            APP.binding.bottomNavView.visibility = View.GONE
         }
     }
 

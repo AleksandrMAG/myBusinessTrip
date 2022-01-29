@@ -16,4 +16,7 @@ interface VisitsDao {
     @Delete
     suspend fun deleteVisit(visit: VisitsModel)
 
+    @Update
+    suspend fun updateVisit(visit: VisitsModel)
+
 }

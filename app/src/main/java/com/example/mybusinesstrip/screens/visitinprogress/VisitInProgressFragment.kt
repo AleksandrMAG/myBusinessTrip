@@ -2,10 +2,11 @@ package com.example.mybusinesstrip.screens.visitinprogress
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
+import com.example.mybusinesstrip.APP
 import com.example.mybusinesstrip.R
 import com.example.mybusinesstrip.databinding.VisitInProgressFragmentBinding
 import com.example.mybusinesstrip.model.VisitsModel
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.constraint_inner_card_contacts.view.*
 class VisitInProgressFragment : Fragment() {
 
     lateinit var binding: VisitInProgressFragmentBinding
+    lateinit var viewModel: VisitInProgressViewModel
     lateinit var currentVisit: VisitsModel
 
     override fun onCreateView(
@@ -29,11 +31,21 @@ class VisitInProgressFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         init()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.updateVisit {  }
+    }
+
     private fun init() {
+        viewModel = ViewModelProvider(this).get(VisitInProgressViewModel::class.java)
+        viewModel.currentVisit = currentVisit
 
         binding.cardPerson.item_tv_sign.text = currentVisit.signName
         binding.cardPerson.item_tv_person.text = currentVisit.person
@@ -56,8 +68,23 @@ class VisitInProgressFragment : Fragment() {
             binding.etInprogressTodo.setText(currentVisit.infoTodo)
         }
 
+        binding.cardPerson.setOnClickListener {
+            it.visibility = View.GONE
+            binding.cardContacs.visibility = View.VISIBLE
+        }
 
+        binding.cardContacs.setOnClickListener {
+            it.visibility = View.GONE
+            binding.cardPerson.visibility = View.VISIBLE
+        }
+
+        binding.etInprogressAfter.doAfterTextChanged { viewModel.currentVisit.infoAfter = it.toString() }
+        binding.etInprogressTodo.doAfterTextChanged { viewModel.currentVisit.infoTodo = it.toString() }
+
+        binding.btnInprogressFinish.setOnClickListener {
+            APP.navController.navigate(R.id.action_visitInProgressFragment_to_item_1)
+            APP.binding.bottomNavView.visibility = View.VISIBLE
+        }
     }
-
 
 }
