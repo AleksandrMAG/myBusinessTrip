@@ -16,9 +16,9 @@ import kotlinx.android.synthetic.main.constraint_inner_card_contacts.view.*
 
 class VisitInProgressFragment : Fragment() {
 
-    lateinit var binding: VisitInProgressFragmentBinding
-    lateinit var viewModel: VisitInProgressViewModel
-    lateinit var currentVisit: VisitsModel
+    private lateinit var binding: VisitInProgressFragmentBinding
+    private lateinit var viewModel: VisitInProgressViewModel
+    private lateinit var currentVisit: VisitsModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,17 +34,13 @@ class VisitInProgressFragment : Fragment() {
         init()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
     override fun onPause() {
         super.onPause()
         viewModel.updateVisit {  }
     }
 
     private fun init() {
-        viewModel = ViewModelProvider(this).get(VisitInProgressViewModel::class.java)
+        viewModel = ViewModelProvider(this)[VisitInProgressViewModel::class.java]
         viewModel.currentVisit = currentVisit
 
         binding.cardPerson.item_tv_sign.text = currentVisit.signName
@@ -76,6 +72,12 @@ class VisitInProgressFragment : Fragment() {
         binding.cardContacs.setOnClickListener {
             it.visibility = View.GONE
             binding.cardPerson.visibility = View.VISIBLE
+        }
+
+        binding.btnChangePersom.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable(VisitsFragment.KEY, viewModel.currentVisit)
+            APP.navController.navigate(R.id.action_visitInProgressFragment_to_changeInfoFragment, bundle)
         }
 
         binding.etInprogressAfter.doAfterTextChanged { viewModel.currentVisit.infoAfter = it.toString() }

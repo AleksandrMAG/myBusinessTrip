@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/drawable/ic_add.xml" value="0.22314814814814815" />
+        <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/drawable/ic_add_a_photo.xml" value="0.126" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/accountability_fragment.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/activity_main.xml" value="0.18055555555555555" />
+        <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/change_info_fragment.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/constraint_inner_card.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/constraint_inner_card_contacts.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/data_exchange_fragment.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/fragment_add_visit.xml" value="0.25" />
+        <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/fragment_change_person_info.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/item_visit.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/map_fragment.xml" value="0.25" />
         <entry key="..\:/Android Studio/MyBusinessTrip/app/src/main/res/layout/statistics_fragment.xml" value="0.25" />

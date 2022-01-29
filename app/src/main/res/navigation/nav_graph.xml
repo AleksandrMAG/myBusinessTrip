@@ -54,5 +54,16 @@
         <action
             android:id="@+id/action_visitInProgressFragment_to_item_1"
             app:destination="@id/item_1" />
+        <action
+            android:id="@+id/action_visitInProgressFragment_to_changeInfoFragment"
+            app:destination="@id/changeInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeInfoFragment"
+        android:name="com.example.mybusinesstrip.screens.changeinfo.ChangeInfoFragment"
+        android:label="ChangeInfoFragment" >
+        <action
+            android:id="@+id/action_changeInfoFragment_to_visitInProgressFragment"
+            app:destination="@id/visitInProgressFragment" />
     </fragment>
 </navigation>
