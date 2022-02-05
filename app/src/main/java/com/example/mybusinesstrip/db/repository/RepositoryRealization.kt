@@ -23,7 +23,7 @@ class RepositoryRealization(private val visitsDao: VisitsDao): VisitRepository {
         visitsDao.updateVisit(visit)
         onSuccess()
     }
-//
-//    override val visitsToExcell: List<VisitsModel>
-//        get() = visitsDao.getAllVisitsForExcell()
+
+    override val visitsToExcell: List<VisitsModel>
+        get() = visitsDao.getAllVisitsForExcell()
 }

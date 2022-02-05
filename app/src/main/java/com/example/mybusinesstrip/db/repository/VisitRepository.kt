@@ -9,5 +9,5 @@ interface VisitRepository {
     suspend fun deleteVisit(visit: VisitsModel, onSuccess: () -> Unit)
     suspend fun updateVisit(visit: VisitsModel, onSuccess: () -> Unit)
 
-//    val visitsToExcell: List<VisitsModel>
+    val visitsToExcell: List<VisitsModel>
 }

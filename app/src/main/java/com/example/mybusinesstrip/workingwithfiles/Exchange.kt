@@ -19,7 +19,7 @@ class Exchange(private val applicationContext: Context,
         const val FILE_NAME = "BusinessTRIP.xlsx"
     }
 
-    suspend fun createTable() {
+    suspend fun createTable(listToExcellRows: List<VisitsModel>) {
 
         val columnNames = applicationContext.resources.getStringArray(R.array.table_columns)
 

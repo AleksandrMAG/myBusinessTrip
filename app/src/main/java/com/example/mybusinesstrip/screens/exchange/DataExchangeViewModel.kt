@@ -7,4 +7,8 @@ import com.example.mybusinesstrip.model.VisitsModel
 
 class DataExchangeViewModel : ViewModel() {
 
+    fun getAllVisitsForExcell(): List<VisitsModel> {
+        return REPOSITORY.visitsToExcell
+    }
+
 }

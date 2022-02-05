@@ -82,7 +82,7 @@ class DataExchangeFragment : Fragment() {
 
         binding.btnExchangeExport.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                exchange.createTable()
+                exchange.createTable(viewModel.getAllVisitsForExcell())
             }
         }
     }
