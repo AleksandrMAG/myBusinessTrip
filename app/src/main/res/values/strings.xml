@@ -67,4 +67,21 @@
 
     //-------------------------------------------------
     <string name="hello_blank_fragment">ТЕСТ - Добавить ВИЗИТ</string>
+
+
+    //---------Data for excel spreadsheet--------------
+    <string-array name="table_columns">
+        <item>Ответственный сотрудник</item>
+        <item>Область</item>
+        <item>Населенный пункт</item>
+        <item>Юр.Лицо</item>
+        <item>Фактическое название</item>
+        <item>Имя контакта</item>
+        <item>Телефоны</item>
+        <item>Email</item>
+        <item>Сайт</item>
+        <item>Описание (задание)</item>
+        <item>Комментарий после визита</item>
+        <item>Что нужно сделать</item>
+    </string-array>
 </resources>

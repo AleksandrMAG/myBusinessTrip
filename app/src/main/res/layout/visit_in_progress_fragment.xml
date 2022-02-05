@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_constraint"
-    android:backgroundTint="@color/bg_constraint"
     tools:context=".screens.visitinprogress.VisitInProgressFragment">
 
 
@@ -29,6 +27,8 @@
         android:layout_marginBottom="16dp"
         android:elevation="15dp"
         app:cardCornerRadius="15dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +48,8 @@
         android:layout_marginBottom="16dp"
         android:elevation="15dp"
         app:cardCornerRadius="15dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,16 +65,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="200dp" />
+        app:layout_constraintGuide_begin="170dp" />
 
     <TextView
         android:id="@+id/tv_inprogress_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:maxHeight="200dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:maxHeight="200dp"
         android:text="@string/tv_info_before"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,8 +124,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/et_hint_after"
@@ -158,8 +158,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/et_hint_todo"

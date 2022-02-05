@@ -19,4 +19,7 @@ interface VisitsDao {
     @Update
     suspend fun updateVisit(visit: VisitsModel)
 
+//    @Query("SELECT * FROM ${VisitsModel.TABLENAME} ORDER BY person ASC")
+//    fun getAllVisitsForExcell(): List<VisitsModel>
+
 }

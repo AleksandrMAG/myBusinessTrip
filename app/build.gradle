@@ -64,4 +64,8 @@ dependencies {
 
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$roomVersion")
+
+    //----------------------Apache POI---------------------------
+    implementation 'org.apache.poi:poi:5.2.0'
+    implementation 'org.apache.poi:poi-ooxml:5.2.0'
 }

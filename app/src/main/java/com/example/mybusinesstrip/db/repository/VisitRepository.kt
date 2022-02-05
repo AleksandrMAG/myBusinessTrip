@@ -8,4 +8,6 @@ interface VisitRepository {
     suspend fun addVisit(visit: VisitsModel, onSuccess: () -> Unit)
     suspend fun deleteVisit(visit: VisitsModel, onSuccess: () -> Unit)
     suspend fun updateVisit(visit: VisitsModel, onSuccess: () -> Unit)
+
+//    val visitsToExcell: List<VisitsModel>
 }
