@@ -84,4 +84,18 @@
         <item>Комментарий после визита</item>
         <item>Что нужно сделать</item>
     </string-array>
+    <string-array name="table_columns_width">
+        <item>4000</item>
+        <item>4000</item>
+        <item>5000</item>
+        <item>4000</item>
+        <item>5000</item>
+        <item>4000</item>
+        <item>4500</item>
+        <item>4000</item>
+        <item>4000</item>
+        <item>12000</item>
+        <item>12000</item>
+        <item>10000</item>
+    </string-array>
 </resources>
