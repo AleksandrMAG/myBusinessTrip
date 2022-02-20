@@ -6,22 +6,21 @@ import android.util.Log
 import com.example.mybusinesstrip.R
 import com.example.mybusinesstrip.model.VisitsModel
 import org.apache.poi.ss.usermodel.*
-import org.apache.poi.xssf.usermodel.XSSFCell
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.File
 import java.io.FileOutputStream
 
 
-
-class Exchange(private val applicationContext: Context,
+class ExportDataToExcel(private val applicationContext: Context,
                private val dstUri: Uri? = null,
                private val downloadDir: File? = null) {
 
     companion object {
         const val FILE_NAME = "BusinessTRIP.xlsx"
+        const val SEPARATOR = " / "
     }
 
-    suspend fun createTable(listToExcellRows: List<VisitsModel>) {
+    suspend fun createTable(listToExcelRows: List<VisitsModel>) {
 
         val columnNames = applicationContext.resources.getStringArray(R.array.table_columns)
         val columnWidth = applicationContext.resources.getStringArray(R.array.table_columns_width)
@@ -58,7 +57,7 @@ class Exchange(private val applicationContext: Context,
 
         //Filling all rows
         var currentRowNumber = 1
-        listToExcellRows.forEach {
+        listToExcelRows.forEach {
             xlWs.createRow(currentRowNumber).let { xssfRow ->
 
                 var cellEmployer = xssfRow.createCell(0)
@@ -86,7 +85,7 @@ class Exchange(private val applicationContext: Context,
                 cellContactsName.cellStyle = styleMain
 
                 var cellPhones = xssfRow.createCell(6)
-                cellPhones.setCellValue("${it.contactPhone}   ${it.contactPhoneSecond}")
+                cellPhones.setCellValue("${it.contactPhone}$SEPARATOR${it.contactPhoneSecond}")
                 cellPhones.cellStyle = styleCenter
 
                 var cellEmail = xssfRow.createCell(7)
@@ -131,4 +130,5 @@ class Exchange(private val applicationContext: Context,
 
         xlWb.close()
     }
+
 }
