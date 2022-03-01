@@ -1,8 +1,13 @@
 package com.example.mybusinesstrip.screens.exchange
 
 import android.Manifest
+import android.app.Activity
+import android.content.ContentResolver
 import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -13,12 +18,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContentResolverCompat
 import androidx.core.content.ContextCompat
+import com.example.mybusinesstrip.MainActivity
+import com.example.mybusinesstrip.RESOLVER
 import com.example.mybusinesstrip.databinding.DataExchangeFragmentBinding
 import com.example.mybusinesstrip.workingwithfiles.ExportDataToExcel
+import com.example.mybusinesstrip.workingwithfiles.ImportDataFromExcel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+private const val OPEN_DOCUMENT_REQUEST_CODE = 77
 
 class DataExchangeFragment : Fragment() {
 
@@ -53,6 +64,20 @@ class DataExchangeFragment : Fragment() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == OPEN_DOCUMENT_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            data?.data?.also { documentUri ->
+                RESOLVER.takePersistableUriPermission(
+                    documentUri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+                openDocument(documentUri)
+            }
+        }
+    }
+
     private fun init() {
 
         viewModel = ViewModelProvider(this)[DataExchangeViewModel::class.java]
@@ -64,6 +89,8 @@ class DataExchangeFragment : Fragment() {
             }
             var dstUri = requireContext().contentResolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues)
             exchange = ExportDataToExcel(requireContext(), dstUri = dstUri)
+
+
         } else {
             if (ContextCompat.checkSelfPermission(
                     requireContext(),
@@ -75,11 +102,30 @@ class DataExchangeFragment : Fragment() {
             }
         }
 
-        binding.btnExchangeExport.setOnClickListener {
-            CoroutineScope(Dispatchers.IO).launch {
-                exchange.createTable(viewModel.getAllVisitsForExcell())
+        binding.apply {
+            btnExchangeExport.setOnClickListener {
+                CoroutineScope(Dispatchers.IO).launch {
+                    exchange.createTable(viewModel.getAllVisitsForExcell())
+                }
+            }
+
+            btnExchangeImport.setOnClickListener {
+                openDocumentPicker()
             }
         }
     }
 
+    private fun openDocumentPicker() {
+        var intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "application/*"
+        }
+        startActivityForResult(intent, OPEN_DOCUMENT_REQUEST_CODE)
+    }
+
+    private fun openDocument(documentUri: Uri) {
+        CoroutineScope(Dispatchers.IO).launch {
+            ImportDataFromExcel(documentUri).readTable()
+        }
+    }
 }

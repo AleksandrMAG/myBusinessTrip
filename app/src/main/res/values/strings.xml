@@ -22,7 +22,11 @@
 
     //Visit in Progress Buttons
     <string name="change_main_info">изменить инфо по контакту</string>
-
+    
+    //Data exchange Buttons
+    <string name="export_data">Выгрузить данные в Excel-файл</string>
+    <string name="import_data">Загрузить данніе из Excel-файла</string>
+    <string name="get_a_template">Получить шаблон для заполнения</string>
 
     //--------Text View--------------------------------------------------------------------------
 
@@ -67,6 +71,10 @@
 
     //-------------------------------------------------
     <string name="hello_blank_fragment">ТЕСТ - Добавить ВИЗИТ</string>
+
+
+    //Text for dialogs--------------------------------
+    <string name="dlg_choose_file">Выберите Excel файл: </string>
 
 
     //---------Data for excel spreadsheet--------------

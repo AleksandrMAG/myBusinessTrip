@@ -1,5 +1,6 @@
 package com.example.mybusinesstrip
 
+import android.content.ContentResolver
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         APP = this
+        RESOLVER = contentResolver
 
         binding.bottomNavView.setupWithNavController(navController)
     }
